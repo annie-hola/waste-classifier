@@ -36,3 +36,27 @@ classDic = {0: None,
             6: 1,
             7: 2,
             8: 2}
+
+while True:
+    _, img = cap.read()
+    imgResize = cv2.resize(img, (454, 340))
+
+    imgBackground = cv2.imread('Resources/background.png')
+
+    predection = classifier.getPrediction(img)
+
+    classID = predection[1]
+    print(classID)
+    if classID != 0:
+        imgBackground = cvzone.overlayPNG(imgBackground, imgWasteList[classID - 1], (909, 127))
+        imgBackground = cvzone.overlayPNG(imgBackground, imgArrow, (978, 320))
+
+        classIDBin = classDic[classID]
+
+    imgBackground = cvzone.overlayPNG(imgBackground, imgBinsList[classIDBin], (895, 374))
+
+    imgBackground[148:148 + 340, 159:159 + 454] = imgResize
+    # Displays
+    # cv2.imshow("Image", img)
+    cv2.imshow("Output", imgBackground)
+    cv2.waitKey(1)
