@@ -15,3 +15,11 @@ pathFolderWaste = "Resources/Waste"
 pathList = os.listdir(pathFolderWaste)
 for path in pathList:
     imgWasteList.append(cv2.imread(os.path.join(pathFolderWaste, path), cv2.IMREAD_UNCHANGED))
+
+# Import all the waste images
+imgBinsList = []
+pathFolderBins = "Resources/Bins"
+pathList = os.listdir(pathFolderBins)
+for path in pathList:
+    imgBinsList.append(cv2.imread(os.path.join(pathFolderBins, path), cv2.IMREAD_UNCHANGED))
+    
