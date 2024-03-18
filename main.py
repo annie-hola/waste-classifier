@@ -23,3 +23,16 @@ pathList = os.listdir(pathFolderBins)
 for path in pathList:
     imgBinsList.append(cv2.imread(os.path.join(pathFolderBins, path), cv2.IMREAD_UNCHANGED))
     
+# 0 = Recyclable
+# 1 = Hazardous
+# 2 = Food
+# 3 = Residual
+classDic = {0: None,
+            1: 0,
+            2: 0,
+            3: 3,
+            4: 3,
+            5: 1,
+            6: 1,
+            7: 2,
+            8: 2}
